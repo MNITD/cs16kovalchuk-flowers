@@ -15,13 +15,15 @@ public class Store {
         store.generateFlowerSet(10);
         Bouquet myBouquet = store.generateBouquet(6);
 
+        System.out.println("Bouquet structure:");
         System.out.println(myBouquet.getListOfFlowers());
         System.out.println("Bouquet price: " + myBouquet.getPrice()+System.getProperty("line.separator"));
 
         myBouquet.sortByFreshness();
+        System.out.println("Sorted bouquet:");
         System.out.println(myBouquet.getListOfFlowers());
 
-
+        System.out.println("Flowers in length range:");
         System.out.println(Bouquet.getListOfFlowers(myBouquet.getFlowersByLength(20, 25)));
 
     }
@@ -38,11 +40,27 @@ public class Store {
     public void generateFlowerSet(int numberOfFlowers) {
         Random r = new Random();
         Date date = new Date();
+
         flowersArray = new Flower[numberOfFlowers];
         for (int i = 0; i < numberOfFlowers; i++) {
-            Flower f = new Flower();
-            f.setName("Flower" + i);
-            f.setPrice(r.nextInt(10) + 2);//from 2 to 12 U.S. dollars
+            Flower f;
+            switch (r.nextInt(3)){
+                case 0:
+                    f = new Rose();
+                    break;
+                case 1:
+                    f = new Tulips();
+                    break;
+                case 2:
+                    f = new Lilies();
+                    break;
+                default:
+                    f = new Flower();
+                    break;
+            }
+
+            f.setName(f.getType() + i);
+            //f.setPrice(r.nextInt(10) + 2);//from 2 to 12 U.S. dollars
             f.setLiveDuration(r.nextInt(48) + 10);//from 10 to 58 hours
             f.setFreshness(r.nextInt(4)+6);
             f.setStemLength(r.nextInt(20)+10); //from 10 to 30 cm

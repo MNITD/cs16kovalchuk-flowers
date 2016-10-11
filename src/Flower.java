@@ -12,6 +12,10 @@ public class Flower {
     private int stemLength;
     private Date birthDay;
 
+    public String getType() {
+        return "Unknown";
+    }
+
     public void setName(String name) {
         this.name = name;
     }

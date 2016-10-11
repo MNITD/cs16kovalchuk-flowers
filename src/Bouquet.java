@@ -11,7 +11,7 @@ public class Bouquet {
     private int size = 0;
 
     public Bouquet() {
-        bouquet = new ArrayList<>();
+        bouquet = new ArrayList<Flower>();
     }
 
     public void addFlower(Flower flower) {
@@ -25,7 +25,7 @@ public class Bouquet {
     }
 
     public int getSize() {
-        return price;
+        return size;
     }
 
     public String getListOfFlowers() {
