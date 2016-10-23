@@ -38,7 +38,8 @@ public class Bouquet {
         }
         return s;
     }
-    public static String getListOfFlowers(ArrayList<Flower>flowersList) {
+
+    public static String getListOfFlowers(ArrayList<Flower> flowersList) {
         String s = "";
         for (Flower f : flowersList) {
             s += "name: " + f.getName() + ", price: " + f.getPrice()
@@ -66,5 +67,39 @@ public class Bouquet {
             }
         }
         return flowersInRange;
+    }
+
+    public Flower[] search(FlowerSpec spec) {
+        ArrayList<Flower> temp = new ArrayList<>();
+        int length = 0;
+        for (Flower f : bouquet) {
+            if (f.getPrice() != spec.getPrice()) {
+                continue;
+            }
+            if (f.getFreshness() != spec.getFreshness()) {
+                continue;
+            }
+            if (f.getStemLength() != spec.getStemLength()) {
+                continue;
+            }
+            if (f.getColor() != spec.getColor()) {
+                continue;
+            }
+            if (!f.getType().equals(spec.getType())) {
+                continue;
+            }
+            if (!f.getName().equals(spec.getName())) {
+                continue;
+            }
+
+            temp.add(f);
+            length++;
+        }
+        Flower[]flowers  = new Flower[length];
+        int i = 0;
+        for(Flower f: temp){
+            flowers[i] = f;
+        }
+        return flowers;
     }
 }

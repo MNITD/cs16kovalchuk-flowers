@@ -5,62 +5,53 @@ import java.util.Date;
  * Created by Dell on 04.10.2016.
  */
 public class Flower {
-    private String name;
-    private int price;
-    private int liveDurationsHours;
-    private int freshness;
-    private int stemLength;
-    private Date birthDay;
 
-    public String getType() {
-        return "Unknown";
+    public enum FlowerColor {
+        RED,
+        BLUE,
+        YELLOW,
+        WHITE;
+
+        public String toString() {
+            return this.toString();
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    private FlowerSpec flowerSpec;
+
+    public Flower(FlowerSpec flowerSpec) {
+        this.flowerSpec = flowerSpec;
+    }
+
+    public FlowerColor getColor() {
+        return flowerSpec.getColor();
+    }
+
+    public String getType() {
+        return flowerSpec.getType();
     }
 
     public String getName() {
-        return name;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+        return flowerSpec.getName();
     }
 
     public int getPrice() {
-        return price;
-    }
-
-    public void setFreshness(int freshness) {
-        this.freshness = freshness;
+        return flowerSpec.getPrice();
     }
 
     public int getFreshness() {
-        return freshness;
-    }
-
-    public void setStemLength(int length) {
-        stemLength = length;
+        return flowerSpec.getFreshness();
     }
 
     public int getStemLength() {
-        return stemLength;
-    }
-
-    public void setLiveDuration(int liveDuration) {
-        this.liveDurationsHours = liveDuration;
-    }
-
-    public void setBirthDayDate(Date d) {
-        birthDay = d;
+        return flowerSpec.getStemLength();
     }
 
     public float getLevelOfFreshness() {
         Date date = new Date();
-        int msAfterBirth = (int) (date.getTime() - birthDay.getTime());
+        int msAfterBirth = (int) (date.getTime() - flowerSpec.getBirthDay().getTime());
         // to get days, should divide on 1000 * 60 * 60 * 24
-        return 100 - (msAfterBirth / (liveDurationsHours * 60 * 60 * 10)); // return freshness in %
+        return 100 - (msAfterBirth / (flowerSpec.getLiveDurationsHours() * 60 * 60 * 10)); // return freshness in %
     }
 
 }

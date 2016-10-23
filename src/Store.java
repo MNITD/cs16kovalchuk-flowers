@@ -44,27 +44,39 @@ public class Store {
         flowersArray = new Flower[numberOfFlowers];
         for (int i = 0; i < numberOfFlowers; i++) {
             Flower f;
+            FlowerSpec flowerSpec = new FlowerSpec();
+
+            //f.setPrice(r.nextInt(10) + 2);//from 2 to 12 U.S. dollars
+            flowerSpec.setLiveDurationsHours(r.nextInt(48) + 10);//from 10 to 58 hours
+            flowerSpec.setFreshness(r.nextInt(4)+6);
+            flowerSpec.setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
+            flowerSpec.setBirthDay(date); //birthDay to calculate freshness in % by date
+            flowerSpec.setColor(Flower.FlowerColor.RED);
+
             switch (r.nextInt(3)){
                 case 0:
-                    f = new Rose();
+                    flowerSpec.setType("Rose");
+                    flowerSpec.setName(flowerSpec.getType() + i);
+                    f = new Rose(flowerSpec);
                     break;
                 case 1:
-                    f = new Tulips();
+                    flowerSpec.setType("Tulips");
+                    flowerSpec.setName(flowerSpec.getType() + i);
+                    f = new Tulips(flowerSpec);
                     break;
                 case 2:
-                    f = new Lilies();
+                    flowerSpec.setType("Lilies");
+                    flowerSpec.setName(flowerSpec.getType() + i);
+                    f = new Lilies(flowerSpec);
                     break;
                 default:
-                    f = new Flower();
+                    flowerSpec.setType("Undefined");
+                    flowerSpec.setName(flowerSpec.getType() + i);
+                    f = new Flower(flowerSpec);
                     break;
             }
 
-            f.setName(f.getType() + i);
-            //f.setPrice(r.nextInt(10) + 2);//from 2 to 12 U.S. dollars
-            f.setLiveDuration(r.nextInt(48) + 10);//from 10 to 58 hours
-            f.setFreshness(r.nextInt(4)+6);
-            f.setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
-            f.setBirthDayDate(date); //birthDay to calculate freshness in % by date
+
             flowersArray[i] = f;
         }
 

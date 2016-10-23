@@ -1,16 +1,9 @@
 /**
  * Created by Dell on 11.10.2016.
  */
-public class Tulips extends  Flower {
-    private String type = "Tulips";
-    private int price = 5;
+public class Tulips extends Flower {
 
-    @Override
-    public String getType(){
-        return  type;
-    }
-    @Override
-    public int getPrice(){
-        return  price;
+    public Tulips(FlowerSpec flowerSpec) {
+        super(flowerSpec);
     }
 }
