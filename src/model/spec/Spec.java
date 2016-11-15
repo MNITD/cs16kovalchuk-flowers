@@ -1,25 +1,16 @@
+package model.spec;
+
 import java.util.Date;
 
 /**
- * Created by Dell on 23.10.2016.
+ * Created by Dell on 25.10.2016.
  */
-public class FlowerSpec {
+public abstract class Spec {
     private String name;
     private int price;
     private int liveDurationsHours;
-    private int freshness;
-    private int stemLength;
     private Date birthDay;
-    private Flower.FlowerColor color;
     private String type;
-
-    public int getFreshness() {
-        return freshness;
-    }
-
-    public void setFreshness(int freshness) {
-        this.freshness = freshness;
-    }
 
     public String getName() {
         return name;
@@ -45,28 +36,12 @@ public class FlowerSpec {
         this.liveDurationsHours = liveDurationsHours;
     }
 
-    public int getStemLength() {
-        return stemLength;
-    }
-
-    public void setStemLength(int stemLength) {
-        this.stemLength = stemLength;
-    }
-
     public Date getBirthDay() {
         return birthDay;
     }
 
     public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
-    }
-
-    public Flower.FlowerColor getColor() {
-        return color;
-    }
-
-    public void setColor(Flower.FlowerColor color) {
-        this.color = color;
     }
 
     public String getType() {
