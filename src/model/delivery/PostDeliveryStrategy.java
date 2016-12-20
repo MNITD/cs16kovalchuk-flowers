@@ -1,7 +1,7 @@
 package model.delivery;
 
 import interfaces.IDelivery;
-import item.Item;
+import interfaces.Item;
 
 import java.util.LinkedList;
 
@@ -9,8 +9,14 @@ import java.util.LinkedList;
  * Created by Dell on 08.11.2016.
  */
 public class PostDeliveryStrategy implements IDelivery {
+
     @Override
     public void delivery(LinkedList<Item> items) {
 
+    }
+
+    @Override
+    public String toString() {
+        return "PostDeliveryStrategy";
     }
 }

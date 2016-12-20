@@ -12,7 +12,18 @@ public enum CactusShape {
 
         @Override
         public String toString() {
-            return this.toString();
+                switch (this) {
+                        case SQUARE_ROUND:
+                                return "Square round";
+                        case TRIANGLE:
+                                return "Triangle";
+                        case TRAPEZOID:
+                                return "Trapezoid";
+                        case OCTAGON:
+                                return "Octagon";
+                        default:
+                                return null;
+                }
         }
 
 }

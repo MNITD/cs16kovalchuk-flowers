@@ -10,4 +10,9 @@ public class CreditCartPaymentStrategy implements IPayment {
     public double pay() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "CreditCartPaymentStrategy";
+    }
 }

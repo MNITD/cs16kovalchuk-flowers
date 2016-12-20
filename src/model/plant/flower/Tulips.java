@@ -1,4 +1,4 @@
-package model.flower;
+package model.plant.flower;
 
 import model.spec.FlowerSpec;
 

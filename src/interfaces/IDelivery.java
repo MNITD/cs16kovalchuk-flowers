@@ -1,7 +1,5 @@
 package interfaces;
 
-import item.Item;
-
 import java.util.LinkedList;
 
 /**
