@@ -1,6 +1,6 @@
 package model.delivery;
 
-import interfaces.IDelivery;
+import interfaces.strategy.IDelivery;
 import interfaces.Item;
 
 import java.util.LinkedList;

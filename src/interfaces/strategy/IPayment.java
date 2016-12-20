@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.strategy;
 
 /**
  * Created by Dell on 08.11.2016.

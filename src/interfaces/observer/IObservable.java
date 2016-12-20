@@ -1,4 +1,6 @@
-package interfaces;
+package interfaces.observer;
+
+import interfaces.observer.IObserver;
 
 /**
  * Created by Dell on 24.11.2016.

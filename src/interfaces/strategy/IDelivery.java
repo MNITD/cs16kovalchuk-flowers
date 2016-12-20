@@ -1,4 +1,6 @@
-package interfaces;
+package interfaces.strategy;
+
+import interfaces.Item;
 
 import java.util.LinkedList;
 

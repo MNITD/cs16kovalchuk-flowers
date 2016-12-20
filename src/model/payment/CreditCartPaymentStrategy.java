@@ -1,6 +1,6 @@
 package model.payment;
 
-import interfaces.IPayment;
+import interfaces.strategy.IPayment;
 
 /**
  * Created by Dell on 08.11.2016.

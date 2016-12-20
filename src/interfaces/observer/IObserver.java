@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.observer;
 
 /**
  * Created by Dell on 24.11.2016.

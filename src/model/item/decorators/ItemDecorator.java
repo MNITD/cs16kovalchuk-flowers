@@ -1,4 +1,4 @@
-package model.item;
+package model.item.decorators;
 
 import interfaces.Item;
 import model.plant.Plant;
@@ -10,10 +10,10 @@ import java.math.BigDecimal;
  * Created by Dell on 08.11.2016.
  */
 abstract class ItemDecorator implements Item {
-    private Item item;
-    ItemDecorator(Item item){
-        this.item = item;
-    }
+    protected Item item;
+//    ItemDecorator(Item item){
+//        this.item = item;
+//    }
 
     public abstract String getDescription();
 
@@ -21,6 +21,7 @@ abstract class ItemDecorator implements Item {
     public BigDecimal price(){
         return item.price();
     }
+
     @Override
     public void addPlant(Plant plant) {
          item.addPlant(plant);

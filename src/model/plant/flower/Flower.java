@@ -26,11 +26,7 @@ public class Flower extends Plant {
 
     @Override
     public BigDecimal calculatePrice() {
-        BigDecimal price = new BigDecimal(getPrice());
-        BigDecimal freshnessLevel = new BigDecimal(getLevelOfFreshness());
-        BigDecimal coefficient = new BigDecimal(0.4);
-        BigDecimal needlessLength = new BigDecimal(getStemLength());
-        return  price.multiply(freshnessLevel).add(coefficient.multiply(needlessLength));
+        return calculatePrice(getPrice(), getLevelOfFreshness(), 0.3, getStemLength());
     }
 
 }

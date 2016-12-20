@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static java.math.BigDecimal.ROUND_CEILING;
+
 /**
  * Created by Dell on 04.10.2016.
  */
@@ -45,7 +47,6 @@ public class Bouquet implements Item {
             s += "name: " + p.getName() + ", price: " + p.getPrice()
                     + ", freshness: " + p.getLevelOfFreshness()
                     + System.getProperty("line.separator");
-            ;
         }
         return s;
     }
@@ -107,6 +108,6 @@ public class Bouquet implements Item {
 
     @Override
     public BigDecimal price() {
-        return price;
+        return price.setScale(2, ROUND_CEILING);
     }
 }

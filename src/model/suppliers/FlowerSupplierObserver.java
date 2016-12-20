@@ -1,7 +1,7 @@
 package model.suppliers;
 
-import interfaces.IObservable;
-import interfaces.IObserver;
+import interfaces.observer.IObservable;
+import interfaces.observer.IObserver;
 import model.plant.flower.Flower;
 
 import java.util.ArrayList;

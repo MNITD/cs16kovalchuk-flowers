@@ -1,7 +1,7 @@
 package model.suppliers;
 
-import interfaces.IObservable;
-import interfaces.IObserver;
+import interfaces.observer.IObservable;
+import interfaces.observer.IObserver;
 import model.plant.cactus.Cactus;
 
 import java.util.ArrayList;
@@ -26,6 +26,6 @@ public class CactusSupplierObserver implements IObserver {
 
     @Override
     public void update() {
-
+//        orderedCactuses = observable.getPlantsList("Cactus");
     }
 }

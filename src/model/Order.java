@@ -1,13 +1,15 @@
 package model;
 
-import interfaces.IDelivery;
-import interfaces.IObservable;
-import interfaces.IObserver;
-import interfaces.IPayment;
+import interfaces.strategy.IDelivery;
+import interfaces.observer.IObservable;
+import interfaces.observer.IObserver;
+import interfaces.strategy.IPayment;
 import interfaces.Item;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import static java.math.BigDecimal.ROUND_CEILING;
 
 /**
  * Created by Dell on 24.11.2016.
@@ -56,7 +58,7 @@ public class Order implements IObservable {
         for(Item item : items){
             totalPrice = totalPrice.add(item.price());
         }
-        return totalPrice;
+        return totalPrice.setScale(2, ROUND_CEILING);
     }
 
     // return report(statistics) of order
