@@ -1,6 +1,7 @@
 package model.item;
 
 import interfaces.Item;
+import interfaces.plants.IPlant;
 import model.plant.Plant;
 import model.spec.Spec;
 
@@ -15,22 +16,22 @@ import static java.math.BigDecimal.ROUND_CEILING;
  * Created by Dell on 04.10.2016.
  */
 public class Bouquet implements Item {
-    private ArrayList<Plant> bouquet;
+    private ArrayList<IPlant> bouquet;
     private BigDecimal price;
 
     public Bouquet() {
-        bouquet = new ArrayList<Plant>();
+        bouquet = new ArrayList<IPlant>();
         price = new BigDecimal(0);
     }
 
     @Override
-    public void addPlant(Plant plant) {
+    public void addPlant(IPlant plant) {
         bouquet.add(plant);
         price = price.add(plant.getCost());
     }
 
     @Override
-    public void removePlant(Plant plant) {
+    public void removePlant(IPlant plant) {
         bouquet.remove(plant);
         price = price.subtract(plant.getCost());
     }
@@ -43,50 +44,30 @@ public class Bouquet implements Item {
     @Override
     public String getListOfPlants() {
         String s = "";
-        for (Plant p : bouquet) {
-            s += "name: " + p.getName() + ", price: " + p.getPrice()
+        for (IPlant p : bouquet) {
+            s += "name: " + p.getName() + ", price: " + p.getCost().setScale(2, ROUND_CEILING)
                     + ", freshness: " + p.getLevelOfFreshness()
                     + System.getProperty("line.separator");
         }
         return s;
     }
 
-//    public static String getListOfFlowers(ArrayList<Plant> flowersList) {
-//        String s = "";
-//        for (Plant f : flowersList) {
-//            s += "name: " + f.getName() + ", price: " + f.getPrice()
-//                    + ", freshness: " + f.getLevelOfFreshness()
-//                    + System.getProperty("line.separator");
-//            ;
-//        }
-//        return s;
-//    }
 
     @Override
     public void sortByLevelOfFreshness() {
-        Collections.sort(bouquet, new Comparator<Plant>() {
+        Collections.sort(bouquet, new Comparator<IPlant>() {
             @Override
-            public int compare(Plant plant1, Plant plant2) {
+            public int compare(IPlant plant1, IPlant plant2) {
                 return Float.compare(plant1.getLevelOfFreshness(), plant2.getLevelOfFreshness());
             }
         });
     }
 
-    //    public ArrayList getFlowersByLength(int a, int b) {
-//        ArrayList<Flower> flowersInRange = new ArrayList<Flower>();
-//        for (Flower f : bouquet) {
-//            if (f.getStemLength() >= a && f.getStemLength() <= b) {
-//                flowersInRange.add(f);
-//            }
-//        }
-//        return flowersInRange;
-//    }
     @Override
-    public Plant[] search(Spec spec) {
-        ArrayList<Plant> temp = new ArrayList<>();
-        int length = 0;
-        for (Plant p : bouquet) {
-            if (p.getPrice() != spec.getPrice()) {
+    public ArrayList<IPlant> search(Spec spec) {
+        ArrayList<IPlant> temp = new ArrayList<>();
+        for (IPlant p : bouquet) {
+            if (p.getCost().intValue() != spec.getPrice()) {
                 continue;
             }
             if (!p.getType().equals(spec.getType())) {
@@ -96,14 +77,8 @@ public class Bouquet implements Item {
                 continue;
             }
             temp.add(p);
-            length++;
         }
-        Plant[] plants = new Plant[length];
-        int i = 0;
-        for (Plant p : temp) {
-            plants[i] = p;
-        }
-        return plants;
+        return temp;
     }
 
     @Override

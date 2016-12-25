@@ -1,11 +1,12 @@
 package model.spec;
 
 import enums.FlowerColor;
+import interfaces.Specs.IFlowerSpec;
 
 /**
  * Created by Dell on 23.10.2016.
  */
-public class FlowerSpec extends Spec {
+public class FlowerSpec extends PlantSpec implements IFlowerSpec {
 
     private int stemLength;
     private FlowerColor color;

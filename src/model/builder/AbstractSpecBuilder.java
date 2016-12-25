@@ -9,10 +9,10 @@ import java.util.Date;
 /**
  * Created by D1mD1m on 12/25/2016.
  */
-public abstract class AbstractPlantBuilder implements ISpecBuilder {
+public abstract class AbstractSpecBuilder implements ISpecBuilder {
     protected Spec anySpec;
 
-    public AbstractPlantBuilder(Spec someSpec){
+    public AbstractSpecBuilder(Spec someSpec){
         this.anySpec = someSpec;
     }
 

@@ -3,15 +3,14 @@ package model.spec;
 import enums.FlowerColor;
 import enums.PlantsTypes;
 import interfaces.Specs.IFlowerSpec;
-import interfaces.Specs.ISpec;
-import interfaces.builder.ISpecBuilder;
+
 
 import java.util.Date;
 
 /**
  * Created by D1mD1m on 12/25/2016.
  */
-public class ArtificialPlantSpec implements IFlowerSpec {
+public class ArtificialFlowerSpec extends Spec implements IFlowerSpec {
     private String name;
     private int price;
     private PlantsTypes type;

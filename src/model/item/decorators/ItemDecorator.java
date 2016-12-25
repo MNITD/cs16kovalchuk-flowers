@@ -1,10 +1,12 @@
 package model.item.decorators;
 
 import interfaces.Item;
+import interfaces.plants.IPlant;
 import model.plant.Plant;
 import model.spec.Spec;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  * Created by Dell on 08.11.2016.
@@ -23,12 +25,12 @@ abstract class ItemDecorator implements Item {
     }
 
     @Override
-    public void addPlant(Plant plant) {
+    public void addPlant(IPlant plant) {
          item.addPlant(plant);
     }
 
     @Override
-    public void removePlant(Plant plant) {
+    public void removePlant(IPlant plant) {
          item.removePlant(plant);
     }
 
@@ -48,7 +50,7 @@ abstract class ItemDecorator implements Item {
     }
 
     @Override
-    public Plant[] search(Spec spec) {
+    public ArrayList<IPlant> search(Spec spec) {
         return item.search(spec);
     }
 }

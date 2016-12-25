@@ -5,12 +5,10 @@ import interfaces.builder.ICactusSpecBuilder;
 import model.spec.CactusSpec;
 import model.spec.Spec;
 
-import java.util.Date;
-
 /**
  * Created by Dell on 20.12.2016.
  */
-public class CactusSpecBuilder extends AbstractPlantBuilder implements ICactusSpecBuilder{
+public class CactusSpecBuilder extends AbstractSpecBuilder implements ICactusSpecBuilder{
 
 
     public CactusSpecBuilder() {
@@ -28,5 +26,8 @@ public class CactusSpecBuilder extends AbstractPlantBuilder implements ICactusSp
         return this;
     }
 
-
+    @Override
+    public Spec getSpec() {
+        return (CactusSpec)anySpec;
+    }
 }
