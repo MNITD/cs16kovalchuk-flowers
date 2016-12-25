@@ -10,10 +10,6 @@ public class CactusSpec extends Spec {
     private CactusShape shape;
     private int needlesLength;
 
-    public CactusSpec(){
-        //super();
-    }
-
     public int getNeedlesLength() {
         return needlesLength;
     }

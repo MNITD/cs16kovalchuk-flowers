@@ -26,13 +26,13 @@ public class Bouquet implements Item {
     @Override
     public void addPlant(Plant plant) {
         bouquet.add(plant);
-        price = price.add(plant.calculatePrice());
+        price = price.add(plant.getCost());
     }
 
     @Override
     public void removePlant(Plant plant) {
         bouquet.remove(plant);
-        price = price.subtract(plant.calculatePrice());
+        price = price.subtract(plant.getCost());
     }
 
     @Override

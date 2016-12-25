@@ -1,8 +1,10 @@
 package model.plant.flower;
 
 import enums.FlowerColor;
+import interfaces.plants.IFlower;
 import model.plant.Plant;
 import model.spec.FlowerSpec;
+import model.utilities.PriceCalculator;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,7 +12,7 @@ import java.util.Date;
 /**
  * Created by Dell on 04.10.2016.
  */
-public class Flower extends Plant {
+public class Flower extends Plant implements IFlower{
 
     public Flower(FlowerSpec flowerSpec) {
         super(flowerSpec);
@@ -25,8 +27,8 @@ public class Flower extends Plant {
     }
 
     @Override
-    public BigDecimal calculatePrice() {
-        return calculatePrice(getPrice(), getLevelOfFreshness(), 0.3, getStemLength());
+    public BigDecimal getCost() {
+        return PriceCalculator.calculatePrice(getPrice(), getLevelOfFreshness(), 0.3, getStemLength());
     }
 
 }

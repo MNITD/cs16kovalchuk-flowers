@@ -2,6 +2,7 @@ package controler;
 
 import enums.CactusShape;
 import enums.FlowerColor;
+import enums.PlantsTypes;
 import interfaces.Item;
 import model.Order;
 import model.builder.CactusSpecBuilder;
@@ -12,6 +13,7 @@ import model.item.Bouquet;
 import model.item.decorators.PaperDecorator;
 import model.item.decorators.RibbonDecorator;
 import model.payment.PayPalPaymentStrategy;
+import model.plant.adapters.ArtificialPlant;
 import model.plant.cactus.Cactus;
 import model.plant.flower.Flower;
 import model.plant.flower.Lilies;
@@ -54,40 +56,41 @@ public class Store {
         FlowerSpecBuilder fsBuilder = new FlowerSpecBuilder();
 
         fsBuilder.setStemLength(20)
-                  .setType("Tulips")
-                  .setLiveDurationsHours(72)
-                  .setName("Tulip1")
-                  .setBirthDay(new Date())
-                  .setPrice(10);
+                .setColor(FlowerColor.BLUE)
+                .setType(PlantsTypes.FLOWER_TULIP)
+                .setLiveDurationsHours(72)
+                .setName("Tulip1")
+                .setBirthDay(new Date())
+                .setPrice(10);
 
         // create Tulips, that contains FlowerSpec
-        Plant tulips = store.plantFactory(fsBuilder.getResult());
+        Plant tulips = store.plantFactory(fsBuilder.getSpec());
 
         // create FlowerSpec for Rose, using Builder
         fsBuilder = new FlowerSpecBuilder();
         fsBuilder.setColor(FlowerColor.YELLOW)
                 .setStemLength(30)
-                .setType("Rose")
+                .setType(PlantsTypes.FLOWER_ROSE)
                 .setLiveDurationsHours(72)
                 .setName("Rose1")
                 .setBirthDay(new Date())
                 .setPrice(15);
 
         // create Rose, that contains FlowerSpec
-        Plant rose = store.plantFactory(fsBuilder.getResult());
+        Plant rose = store.plantFactory(fsBuilder.getSpec());
 
         // create CactusSpec for Cactus, using Builder
         CactusSpecBuilder csBuilder = new CactusSpecBuilder();
         csBuilder.setShape(CactusShape.SQUARE_ROUND)
                 .setNeedlesLength(4)
-                .setType("Cactus")
+                .setType(PlantsTypes.CACTUS_UNCPECIFIED)
                 .setLiveDurationsHours(500000)
                 .setName("Cactus1")
                 .setBirthDay(new Date())
                 .setPrice(5);
 
         // create Cactus, that contains CactusSpec
-        Plant cactus = store.plantFactory(csBuilder.getResult());
+        Plant cactus = store.plantFactory(csBuilder.getSpec());
 
         // add plants to bouquet
         bouquet.addPlant(tulips);
@@ -129,17 +132,20 @@ public class Store {
 
     public Plant plantFactory(Spec spec){
         switch (spec.getType()){
-            case "Tulips":
+            case FLOWER_TULIP:
                 return new Tulips((FlowerSpec) spec);
 
-            case "Lilies":
+            case FLOWER_LILIE:
                 return new Lilies((FlowerSpec) spec);
 
-            case "Rose":
+            case FLOWER_ROSE:
                 return new Rose((FlowerSpec) spec);
 
-            case "Cactus":
+            case CACTUS_UNCPECIFIED:
                 return new Cactus((CactusSpec) spec);
+
+            case FLOWER_ARTIFICIAL_UNCPECIFIED:
+                //return new ArtificialPlant();
 
            default:
                return null;
@@ -171,28 +177,28 @@ public class Store {
 
             switch (r.nextInt(3)){
                 case 0:
-                    spec.setType("model.plant.flower.Rose");
-                    spec.setName(spec.getType() + i);
+                    spec.setType(PlantsTypes.FLOWER_ROSE);
+                    spec.setName(spec.getType().toString() + i);
                     ((FlowerSpec)spec).setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
                     ((FlowerSpec)spec).setColor(FlowerColor.RED);
                     p = new Rose((FlowerSpec) spec);
                     break;
                 case 1:
-                    spec.setType("model.plant.flower.Tulips");
-                    spec.setName(spec.getType() + i);
+                    spec.setType(PlantsTypes.FLOWER_TULIP);
+                    spec.setName(spec.getType().toString() + i);
                     ((FlowerSpec)spec).setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
                     p = new Tulips((FlowerSpec)spec);
                     break;
                 case 2:
-                    spec.setType("model.plant.flower.Lilies");
-                    spec.setName(spec.getType() + i);
+                    spec.setType(PlantsTypes.FLOWER_LILIE);
+                    spec.setName(spec.getType().toString() + i);
                     ((FlowerSpec)spec).setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
                     ((FlowerSpec)spec).setColor(FlowerColor.RED);
                     p = new Lilies((FlowerSpec)spec);
                     break;
                 default:
-                    spec.setType("Undefined");
-                    spec.setName(spec.getType() + i);
+                    spec.setType(PlantsTypes.FLOWER_UNCPECIFIED);
+                    spec.setName(spec.getType().toString() + i);
                     ((FlowerSpec)spec).setStemLength(r.nextInt(20)+10); //from 10 to 30 cm
                     ((FlowerSpec)spec).setColor(FlowerColor.RED);
                     p = new Flower((FlowerSpec)spec);

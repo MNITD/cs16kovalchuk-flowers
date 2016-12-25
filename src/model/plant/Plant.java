@@ -1,7 +1,8 @@
 package model.plant;
 
-import model.spec.CactusSpec;
+import interfaces.plants.IPlant;
 import model.spec.Spec;
+import model.utilities.PriceCalculator;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -9,7 +10,7 @@ import java.util.Date;
 /**
  * Created by Dell on 01.11.2016.
  */
-public abstract class Plant {
+public abstract class Plant implements IPlant{
 
     protected Spec plantSpec;
 
@@ -18,7 +19,7 @@ public abstract class Plant {
     }
 
     public String getType(){
-        return plantSpec.getType();
+        return plantSpec.getType().toString();
     }
     public String getName(){
         return  plantSpec.getName();
@@ -32,16 +33,5 @@ public abstract class Plant {
         // to get days, should divide on 1000 * 60 * 60 * 24
         return 100 - (msAfterBirth / (plantSpec.getLiveDurationsHours() * 60 * 60 * 10)); // return freshness in %
     }
-
-    protected BigDecimal calculatePrice(int cost, float fresh, double coef, int length){
-        BigDecimal price = new BigDecimal(cost);
-        BigDecimal freshnessLevel = new BigDecimal(fresh/100);
-        BigDecimal coefficient = new BigDecimal(coef);
-        BigDecimal needlessLength = new BigDecimal(length);
-        BigDecimal arg1 = price.multiply(freshnessLevel);
-        BigDecimal arg2 = coefficient.multiply(needlessLength);
-        return arg1.add(arg2);
-    }
-    public abstract BigDecimal calculatePrice();
 
 }

@@ -10,10 +10,6 @@ public class FlowerSpec extends Spec {
     private int stemLength;
     private FlowerColor color;
 
-    public FlowerSpec() {
-        //super();
-    }
-
     public int getStemLength() {
         return stemLength;
     }

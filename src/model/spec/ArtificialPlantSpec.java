@@ -1,24 +1,22 @@
 package model.spec;
 
+import enums.FlowerColor;
 import enums.PlantsTypes;
+import interfaces.Specs.IFlowerSpec;
 import interfaces.Specs.ISpec;
+import interfaces.builder.ISpecBuilder;
 
 import java.util.Date;
 
 /**
- * Created by Dell on 25.10.2016.
- * private String name;
- private int price;
- private int liveDurationsHours;
- private Date birthDay;
- private String type;
+ * Created by D1mD1m on 12/25/2016.
  */
-public abstract class Spec implements ISpec {
+public class ArtificialPlantSpec implements IFlowerSpec {
     private String name;
     private int price;
-    private int liveDurationsHours;
-    private Date birthDay;
     private PlantsTypes type;
+    private int stemLength;
+    private FlowerColor color;
 
     public String getName() {
         return name;
@@ -37,19 +35,17 @@ public abstract class Spec implements ISpec {
     }
 
     public int getLiveDurationsHours() {
-        return liveDurationsHours;
+        return 0;
     }
 
     public void setLiveDurationsHours(int liveDurationsHours) {
-        this.liveDurationsHours = liveDurationsHours;
     }
 
     public Date getBirthDay() {
-        return birthDay;
+        return new Date();
     }
 
     public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
     }
 
     public PlantsTypes getType() {
@@ -59,4 +55,21 @@ public abstract class Spec implements ISpec {
     public void setType(PlantsTypes type) {
         this.type = type;
     }
+
+    public int getStemLength() {
+        return stemLength;
+    }
+
+    public void setStemLength(int stemLength) {
+        this.stemLength = stemLength;
+    }
+
+    public FlowerColor getColor() {
+        return color;
+    }
+
+    public void setColor(FlowerColor color) {
+        this.color = color;
+    }
+
 }

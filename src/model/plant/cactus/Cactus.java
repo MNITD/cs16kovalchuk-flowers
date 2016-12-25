@@ -1,8 +1,11 @@
 package model.plant.cactus;
 
 import enums.CactusShape;
+import interfaces.plants.ICactus;
+import interfaces.plants.IFlower;
 import model.plant.Plant;
 import model.spec.CactusSpec;
+import model.utilities.PriceCalculator;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,7 +13,7 @@ import java.util.Date;
 /**
  * Created by Dell on 25.10.2016.
  */
-public class Cactus extends Plant {
+public class Cactus extends Plant implements ICactus{
 
     public Cactus(CactusSpec cactusSpec){
         super(cactusSpec);
@@ -25,7 +28,7 @@ public class Cactus extends Plant {
     }
 
     @Override
-    public BigDecimal calculatePrice(){
-        return calculatePrice(getPrice(), getLevelOfFreshness(), 0.2, getNeedlesLength());
+    public BigDecimal getCost(){
+        return PriceCalculator.calculatePrice(getPrice(), getLevelOfFreshness(), 0.2, getNeedlesLength());
     }
 }
