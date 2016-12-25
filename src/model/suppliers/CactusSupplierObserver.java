@@ -14,10 +14,11 @@ public class CactusSupplierObserver implements IObserver {
     private IObservable observable;
     private ArrayList<Cactus> orderedCactuses;
 
-    public CactusSupplierObserver(IObservable observable){
+    public CactusSupplierObserver(IObservable observable) {
         setObservable(observable);
         orderedCactuses = new ArrayList<>();
     }
+
     @Override
     public void setObservable(IObservable observable) {
         observable.attach(this);

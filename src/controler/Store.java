@@ -11,8 +11,8 @@ import model.builder.ArtificialFlowerBuilder;
 import model.builder.CactusSpecBuilder;
 import model.builder.FlowerSpecBuilder;
 import model.delivery.DHLDeliveryStrategy;
-import model.item.decorators.BasketDecorator;
 import model.item.Bouquet;
+import model.item.decorators.BasketDecorator;
 import model.item.decorators.PaperDecorator;
 import model.item.decorators.RibbonDecorator;
 import model.payment.PayPalPaymentStrategy;
@@ -120,7 +120,6 @@ public class Store {
         System.out.println(order.processOrder());
 
     }
-
 
 
     public Bouquet generateBouquet(int bouquetSize) {

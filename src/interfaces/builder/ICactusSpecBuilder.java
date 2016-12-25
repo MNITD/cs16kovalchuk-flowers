@@ -7,5 +7,6 @@ import enums.CactusShape;
  */
 public interface ICactusSpecBuilder extends ISpecBuilder {
     ICactusSpecBuilder setShape(CactusShape shape);
+
     ICactusSpecBuilder setNeedlesLength(int needlesLength);
 }

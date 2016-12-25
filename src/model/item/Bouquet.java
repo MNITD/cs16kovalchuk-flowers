@@ -2,7 +2,6 @@ package model.item;
 
 import interfaces.Item;
 import interfaces.plants.IPlant;
-import model.plant.Plant;
 import model.spec.Spec;
 
 import java.math.BigDecimal;

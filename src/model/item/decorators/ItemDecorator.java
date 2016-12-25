@@ -2,7 +2,6 @@ package model.item.decorators;
 
 import interfaces.Item;
 import interfaces.plants.IPlant;
-import model.plant.Plant;
 import model.spec.Spec;
 
 import java.math.BigDecimal;
@@ -20,18 +19,18 @@ abstract class ItemDecorator implements Item {
     public abstract String getDescription();
 
     @Override
-    public BigDecimal price(){
+    public BigDecimal price() {
         return item.price();
     }
 
     @Override
     public void addPlant(IPlant plant) {
-         item.addPlant(plant);
+        item.addPlant(plant);
     }
 
     @Override
     public void removePlant(IPlant plant) {
-         item.removePlant(plant);
+        item.removePlant(plant);
     }
 
     @Override

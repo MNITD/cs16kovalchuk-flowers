@@ -7,23 +7,22 @@ import model.spec.FlowerSpec;
 import model.utilities.PriceCalculator;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * Created by Dell on 04.10.2016.
  */
-public class Flower extends Plant implements IFlower{
+public class Flower extends Plant implements IFlower {
 
     public Flower(FlowerSpec flowerSpec) {
         super(flowerSpec);
     }
 
     public FlowerColor getColor() {
-        return ((FlowerSpec)super.plantSpec).getColor();
+        return ((FlowerSpec) super.plantSpec).getColor();
     }
 
     public int getStemLength() {
-        return ((FlowerSpec)super.plantSpec).getStemLength();
+        return ((FlowerSpec) super.plantSpec).getStemLength();
     }
 
     @Override

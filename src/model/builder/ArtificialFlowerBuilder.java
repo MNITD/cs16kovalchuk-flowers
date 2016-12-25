@@ -3,7 +3,6 @@ package model.builder;
 import enums.FlowerColor;
 import interfaces.builder.IFlowerSpecBuilder;
 import model.spec.ArtificialFlowerSpec;
-import model.spec.FlowerSpec;
 import model.spec.Spec;
 
 import java.util.Date;
@@ -11,19 +10,19 @@ import java.util.Date;
 /**
  * Created by D1mD1m on 12/25/2016.
  */
-public class ArtificialFlowerBuilder extends AbstractSpecBuilder implements IFlowerSpecBuilder{
+public class ArtificialFlowerBuilder extends AbstractSpecBuilder implements IFlowerSpecBuilder {
 
     public ArtificialFlowerBuilder() {
         super(new ArtificialFlowerSpec());
     }
 
     public IFlowerSpecBuilder setColor(FlowerColor flowerColor) {
-        ((ArtificialFlowerSpec)anySpec).setColor(flowerColor);
+        ((ArtificialFlowerSpec) anySpec).setColor(flowerColor);
         return this;
     }
 
     public IFlowerSpecBuilder setStemLength(int stemLength) {
-        ((ArtificialFlowerSpec)anySpec).setStemLength(stemLength);
+        ((ArtificialFlowerSpec) anySpec).setStemLength(stemLength);
         return this;
     }
 
@@ -43,7 +42,7 @@ public class ArtificialFlowerBuilder extends AbstractSpecBuilder implements IFlo
 
     @Override
     public Spec getSpec() {
-        return (ArtificialFlowerSpec)anySpec;
+        return (ArtificialFlowerSpec) anySpec;
     }
 
 }

@@ -3,15 +3,13 @@ package model.spec;
 import enums.PlantsTypes;
 import interfaces.Specs.ISpec;
 
-import java.util.Date;
-
 /**
  * Created by Dell on 25.10.2016.
  * private String name;
- private int price;
- private int liveDurationsHours;
- private Date birthDay;
- private String type;
+ * private int price;
+ * private int liveDurationsHours;
+ * private Date birthDay;
+ * private String type;
  */
 public abstract class Spec implements ISpec {
     private String name;

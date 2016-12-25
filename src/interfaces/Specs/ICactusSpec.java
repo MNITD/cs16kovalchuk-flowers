@@ -8,7 +8,10 @@ import enums.CactusShape;
 public interface ICactusSpec extends ISpec {
 
     int getNeedlesLength();
+
     void setNeedlesLength(int needlesLength);
+
     CactusShape getShape();
+
     void setShape(CactusShape shape);
 }

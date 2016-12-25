@@ -11,7 +11,7 @@ import static java.math.BigDecimal.ROUND_CEILING;
  */
 public class PaperDecorator extends ItemDecorator {
 
-    public PaperDecorator(Item item){
+    public PaperDecorator(Item item) {
         this.item = item;
     }
 

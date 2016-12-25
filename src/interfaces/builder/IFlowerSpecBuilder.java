@@ -7,5 +7,6 @@ import enums.FlowerColor;
  */
 public interface IFlowerSpecBuilder extends ISpecBuilder {
     IFlowerSpecBuilder setColor(FlowerColor flowerColor);
+
     IFlowerSpecBuilder setStemLength(int stemLength);
 }

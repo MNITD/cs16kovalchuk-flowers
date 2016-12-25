@@ -12,7 +12,7 @@ import java.util.Date;
 public abstract class AbstractSpecBuilder implements ISpecBuilder {
     protected Spec anySpec;
 
-    public AbstractSpecBuilder(Spec someSpec){
+    public AbstractSpecBuilder(Spec someSpec) {
         this.anySpec = someSpec;
     }
 

@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by D1mD1m on 12/25/2016.
  */
-public abstract class PlantSpec extends Spec{
+public abstract class PlantSpec extends Spec {
     private String name;
     private int price;
     private int liveDurationsHours;

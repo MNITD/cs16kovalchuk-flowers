@@ -10,13 +10,22 @@ import java.util.Date;
 public interface ISpec {
 
     String getName();
+
     void setName(String name);
+
     int getPrice();
+
     void setPrice(int price);
+
     int getLiveDurationsHours();
+
     void setLiveDurationsHours(int liveDurationsHours);
+
     Date getBirthDay();
+
     void setBirthDay(Date birthDay);
+
     PlantsTypes getType();
+
     void setType(PlantsTypes type);
 }

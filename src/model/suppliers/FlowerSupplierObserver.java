@@ -14,7 +14,7 @@ public class FlowerSupplierObserver implements IObserver {
     private IObservable observable;
     private ArrayList<Flower> orderedFlowers;
 
-    public FlowerSupplierObserver(IObservable observable){
+    public FlowerSupplierObserver(IObservable observable) {
         setObservable(observable);
         orderedFlowers = new ArrayList<>();
     }
@@ -22,7 +22,7 @@ public class FlowerSupplierObserver implements IObserver {
     @Override
     public void setObservable(IObservable observable) {
         observable.attach(this);
-        this.observable  = observable;
+        this.observable = observable;
     }
 
     @Override

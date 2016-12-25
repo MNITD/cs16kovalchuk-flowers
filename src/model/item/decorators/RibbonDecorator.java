@@ -11,7 +11,7 @@ import static java.math.BigDecimal.ROUND_CEILING;
  */
 public class RibbonDecorator extends ItemDecorator {
 
-    public RibbonDecorator(Item item){
+    public RibbonDecorator(Item item) {
         this.item = item;
     }
 
@@ -26,5 +26,5 @@ public class RibbonDecorator extends ItemDecorator {
         BigDecimal price = item.price().multiply(coefficient);
         return price.setScale(2, ROUND_CEILING);
     }
-    
+
 }

@@ -7,7 +7,7 @@ import model.spec.FlowerSpec;
  */
 public class Rose extends Flower {
 
-    public Rose(FlowerSpec flowerSpec){
+    public Rose(FlowerSpec flowerSpec) {
         super(flowerSpec);
     }
 }

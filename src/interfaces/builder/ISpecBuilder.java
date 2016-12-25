@@ -10,9 +10,14 @@ import java.util.Date;
  */
 public interface ISpecBuilder {
     ISpecBuilder setType(PlantsTypes type);
+
     ISpecBuilder setLiveDurationsHours(int durationsHours);
+
     ISpecBuilder setName(String name);
+
     ISpecBuilder setBirthDay(Date birthDay);
+
     ISpecBuilder setPrice(int price);
+
     Spec getSpec();
 }

@@ -1,10 +1,10 @@
 package model;
 
-import interfaces.strategy.IDelivery;
+import interfaces.Item;
 import interfaces.observer.IObservable;
 import interfaces.observer.IObserver;
+import interfaces.strategy.IDelivery;
 import interfaces.strategy.IPayment;
-import interfaces.Item;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -15,12 +15,12 @@ import static java.math.BigDecimal.ROUND_CEILING;
  * Created by Dell on 24.11.2016.
  */
 public class Order implements IObservable {
-    private ArrayList<IObserver>listeners;
-    private ArrayList<Item>items;
+    private ArrayList<IObserver> listeners;
+    private ArrayList<Item> items;
     private IDelivery delivery;
     private IPayment payment;
 
-    public  Order(){
+    public Order() {
         listeners = new ArrayList<>();
         items = new ArrayList<>();
     }
@@ -40,52 +40,52 @@ public class Order implements IObservable {
     // notify all listeners
     @Override
     public void notifyAllObservers() {
-        for(IObserver observer : listeners){
+        for (IObserver observer : listeners) {
             observer.update();
         }
     }
 
-    public void setPaymentStrategy(IPayment payment){
+    public void setPaymentStrategy(IPayment payment) {
         this.payment = payment;
     }
 
-    public void setDeliveryStrategy(IDelivery delivery){
+    public void setDeliveryStrategy(IDelivery delivery) {
         this.delivery = delivery;
     }
 
-    public BigDecimal calculateTotalPrice(){
+    public BigDecimal calculateTotalPrice() {
         BigDecimal totalPrice = new BigDecimal(0);
-        for(Item item : items){
+        for (Item item : items) {
             totalPrice = totalPrice.add(item.price());
         }
         return totalPrice.setScale(2, ROUND_CEILING);
     }
 
     // return report(statistics) of order
-    private String getOrderReport(){
-        String result =  "Number of items in order: " + items.size() + System.getProperty("line.separator")+
-                "List of items: " +   System.getProperty("line.separator");
-        for(Item i : items){
+    private String getOrderReport() {
+        String result = "Number of items in order: " + items.size() + System.getProperty("line.separator") +
+                "List of items: " + System.getProperty("line.separator");
+        for (Item i : items) {
             result += i.getListOfPlants();
         }
-        result += "Total price: "+ calculateTotalPrice() + System.getProperty("line.separator")+
-                "Delivery strategy: " + delivery.toString() +  System.getProperty("line.separator")+
+        result += "Total price: " + calculateTotalPrice() + System.getProperty("line.separator") +
+                "Delivery strategy: " + delivery.toString() + System.getProperty("line.separator") +
                 "Payment strategy: " + payment.toString();
         return result;
     }
 
     // process order, notify listeners, return report
-    public String processOrder(){
+    public String processOrder() {
         notifyAllObservers();
 
         return getOrderReport();
     }
 
-    public void addItem(Item item){
+    public void addItem(Item item) {
         items.add(item);
     }
 
-    public void removeItem(Item item){
+    public void removeItem(Item item) {
         items.remove(item);
     }
 }
